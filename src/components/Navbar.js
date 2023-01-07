@@ -32,7 +32,7 @@ const SearchContainer = styled.div`
   align-items: center;
   padding: 5px;
   margin-left: 25px;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   cursor: pointer;
 `;
 
