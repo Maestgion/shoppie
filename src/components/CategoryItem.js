@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-/* flex: 1; */
+flex: 1;
 margin: 15px;
 height: 85vh;
 position: relative;
@@ -35,7 +35,7 @@ const Button = styled.button`
     background-color: white;
     color: gray;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 15px;
     padding: 15px;
     font-weight: bold ;
     /* margin: 20px 0px; */
