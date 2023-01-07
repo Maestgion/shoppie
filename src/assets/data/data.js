@@ -50,7 +50,7 @@ export const sliderItems = [
     },
     {
       id:2,
-      img:"https://cdn.shopify.com/s/files/1/0101/4832/products/Angela_Natural_Tee.png?v=1606780388",
+      img:"https://i.pinimg.com/originals/e6/cb/bb/e6cbbb5d192866df511415e2850500aa.png",
     },
     {
       id:3,
@@ -58,7 +58,7 @@ export const sliderItems = [
     },
     {
       id:4,
-      img:"https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+      img:"https://www.pngall.com/wp-content/uploads/2016/05/Dumbbells-PNG-File.png",
     },
     {
       id:5,
@@ -70,7 +70,7 @@ export const sliderItems = [
     },
     {
       id:7,
-      img:"https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+      img:"https://www.pngkey.com/png/full/152-1527020_mixer-grinder-transparent-background-vinod-mixer-grinder.png",
     },
     {
       id:8,
