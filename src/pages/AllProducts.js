@@ -59,7 +59,6 @@ const AllProducts = () => {
               <Options>L</Options>
               <Options>XL</Options>
               <Options>XXL</Options>
-             
             </Select>
           </Filter>
           <Filter>

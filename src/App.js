@@ -1,5 +1,6 @@
 import React from 'react'
-import AllProducts from './pages/AllProducts'
+// import AllProducts from './pages/AllProducts'
+import SingleProduct from './pages/SingleProduct'
 // import Home from "./pages/Home"
 
 const App = () => {
@@ -7,7 +8,8 @@ const App = () => {
     <>
     
     {/* <Home/> */}
-    <AllProducts/>
+    {/* <AllProducts/> */}
+    <SingleProduct/>
     </>
   )
 }
