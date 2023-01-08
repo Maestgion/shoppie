@@ -64,7 +64,7 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  width: 40%;
+  width: 45%;
 `;
 
 const Right = styled.div`
@@ -128,8 +128,8 @@ const Footer = () => {
         <Right>
           <Title>Contact</Title>
           <ContactItem>
-            <Room style={{ marginRight: "10px" }} /> 622 Dixie Path , South
-            Tobinchester 98336
+            <Room style={{ marginRight: "10px" }} /> Chennai,
+            Tamil Nadu 603203
           </ContactItem>
           <ContactItem>
             <Phone style={{ marginRight: "10px" }} /> +1 234 56 78
