@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import styled from "styled-components"
+import { Add, Remove } from "@mui/icons-material";
 
 const Container = styled.div``
 
@@ -46,34 +47,62 @@ const FilterContainer = styled.div`
 display: flex;
 width: 50%;
 justify-content: space-between;
+align-items: center;
 `
 
 const  Filter = styled.div`
 display: flex;
 gap: 10px;
-align-content: center;
-
+align-items: center;
 `
 const  FilterTitle = styled.span`
 font-size: 20px;
 font-weight: 200;
 `
 
-const FilterColor = styled.div``
+const FilterColor = styled.div`
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background-color: ${(props)=>props.bg};
+`
 
 const FilterSize = styled.select`
 padding: 5px;
 `
 
-const FIlterSizeOptions = styled.option``
+const FilterSizeOptions = styled.option``
 
-const CartContainer = styled.div``
+const CartContainer = styled.div`
+width: 50%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 0px;
+`
 
-const QuantityContainer = styled.div``
+const QuantityContainer = styled.div`
+display: flex;
+align-items: center;
+gap: 5px;
+`
 
-const Quantity = styled.option``
+const Quantity = styled.option`
+border: 1px solid teal;
+border-radius: 10px;
+width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
-const Button = styled.button``
+const Button = styled.button`
+background-color: transparent;
+border: 3px solid teal;
+padding: 10px;
+`
 
 const SingleProduct = () => {
   return (
@@ -94,22 +123,29 @@ const SingleProduct = () => {
                 <FilterContainer>
                     <Filter>
                         <FilterTitle>Color</FilterTitle>
-                        <FilterColor></FilterColor>
-                      
+                        <FilterColor bg={"black"} />
+                        <FilterColor bg={"blue"} />
+                        <FilterColor bg={"green"} />
                     </Filter>
                     <Filter>
                         <FilterTitle>Size</FilterTitle>
                     <FilterSize>
-                            <FIlterSizeOptions></FIlterSizeOptions>
+                            <FilterSizeOptions>XS</FilterSizeOptions>
+                            <FilterSizeOptions>S</FilterSizeOptions>
+                            <FilterSizeOptions>M</FilterSizeOptions>
+                            <FilterSizeOptions>L</FilterSizeOptions>
+                            <FilterSizeOptions>XL</FilterSizeOptions>
                         </FilterSize>
                     </Filter>
                 </FilterContainer>
                 <CartContainer>
                     <QuantityContainer>
-                        <Quantity></Quantity>
+                        <Remove/>
+                        <Quantity>1</Quantity>
+                        <Add/>
                     </QuantityContainer>
                     <Button>
-
+                    ADD TO CART
                     </Button>
                 </CartContainer>
             </InfoContainer>
