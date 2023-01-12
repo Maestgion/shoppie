@@ -102,6 +102,12 @@ const Button = styled.button`
 background-color: transparent;
 border: 3px solid teal;
 padding: 10px;
+cursor: pointer;
+&:hover{
+    background-color:teal;
+    color: white;
+    transition: all 0.5s ease;
+}
 `
 
 const SingleProduct = () => {
