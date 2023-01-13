@@ -1,4 +1,5 @@
 import React from 'react'
+import Cart from './pages/Cart'
 import Login from './pages/Login'
 import Register from './pages/Register'
 // import AllProducts from './pages/AllProducts'
@@ -13,7 +14,8 @@ const App = () => {
     {/* <AllProducts/> */}
     {/* <SingleProduct/> */}
     {/* <Register/> */}
-    <Login/>
+    {/* <Login/> */}
+    <Cart/>
     </>
   )
 }
