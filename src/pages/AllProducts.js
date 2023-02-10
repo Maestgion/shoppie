@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Announcements from "../components/Announcements";
@@ -35,7 +35,22 @@ padding-bottom: 2px;
 
 const AllProducts = () => {
   const location = useLocation();
-  console.log(location.pathname.split("/")[2])
+  // console.log(location.pathname.split("/")[2])
+  const categories = location.pathname.split("/")[2]
+
+  const [filters, setFilters] = useState({})
+  const [sort, setSort] = useState("newest")
+
+  const handleFilters= (e)=>{
+   
+    const value = e.target.value;
+  
+    setFilters({
+      ...filters,
+      [e.target.name]:value,
+    })
+    
+  } 
   return (
     <>
       <Navbar />
@@ -45,7 +60,7 @@ const AllProducts = () => {
         <FilterContainer>
           <Filter>
             <FilterText>Filter Products:</FilterText>
-            <Select>
+            <Select name="color" onChange={handleFilters}>
               <Options disabled selected>Color</Options>
               <Options>white</Options>
               <Options>black</Options>
@@ -54,7 +69,7 @@ const AllProducts = () => {
               <Options>blue</Options>
               <Options>yellow</Options> 
             </Select>
-            <Select>
+            <Select name="size" onChange={handleFilters}>
             <Options disabled selected>Size</Options>
               <Options>XS</Options>
               <Options>S</Options>
@@ -66,7 +81,7 @@ const AllProducts = () => {
           </Filter>
           <Filter>
             <FilterText>Sort Products:</FilterText>
-            <Select>
+            <Select onChange={(e)=>setSort(e.target.value)}>
             <Options value="newest">Newest</Options>
             <Options value="asc">Price (asc)</Options>
             <Options value="desc">Price (desc)</Options>
@@ -74,7 +89,7 @@ const AllProducts = () => {
           </Filter>
         </FilterContainer>
       </Container>
-      <ProductList />
+      <ProductList categories={categories} filters={filters} sort={sort} />
       <Newsletter />
       <Footer />
     </>
