@@ -5,6 +5,7 @@ import Announcements from "../components/Announcements";
 import ProductList from "../components/ProductList";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div``;
 const Title = styled.h1`
@@ -33,6 +34,8 @@ padding-bottom: 2px;
 `;
 
 const AllProducts = () => {
+  const location = useLocation();
+  console.log(location.pathname.split("/")[2])
   return (
     <>
       <Navbar />
@@ -43,7 +46,7 @@ const AllProducts = () => {
           <Filter>
             <FilterText>Filter Products:</FilterText>
             <Select>
-              <Options disabled>Color</Options>
+              <Options disabled selected>Color</Options>
               <Options>white</Options>
               <Options>black</Options>
               <Options>green</Options>
@@ -52,7 +55,7 @@ const AllProducts = () => {
               <Options>yellow</Options> 
             </Select>
             <Select>
-            <Options disabled>Size</Options>
+            <Options disabled selected>Size</Options>
               <Options>XS</Options>
               <Options>S</Options>
               <Options>M</Options>

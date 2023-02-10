@@ -5,9 +5,10 @@ import Register from './pages/Register'
 import AllProducts from './pages/AllProducts'
 import SingleProduct from './pages/SingleProduct'
 import Home from "./pages/Home"
-import {BrowserRouter, Routes, Route } from "react-router-dom"
+import {BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 
 const App = () => {
+  const user = true;
   return (
     <>
     
@@ -17,6 +18,20 @@ const App = () => {
         <Route
         path='/'
         element={<Home/>}
+        />
+      </Routes>
+
+      <Routes>
+        <Route
+        path='/login'
+        element={user ? (<Navigate replace to="/" />) :  (<Login/>) }
+        />
+      </Routes>
+
+      <Routes>
+        <Route
+        path='/signup'
+        element={user ? (<Navigate replace to="/" />) : <Register/>}
         />
       </Routes>
 
