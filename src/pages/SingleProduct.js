@@ -5,6 +5,8 @@ import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import styled from "styled-components"
 import { Add, Remove } from "@mui/icons-material";
+import {useLocation} from "react-router-dom"
+import {publicReq} from "../assets/axios/reqMethod"
 
 const Container = styled.div``
 
@@ -111,6 +113,8 @@ cursor: pointer;
 `
 
 const SingleProduct = () => {
+    const location = useLocation();
+    const prodId = location.pathname.split("/")[2];
   return (
     <>
     <Navbar/>

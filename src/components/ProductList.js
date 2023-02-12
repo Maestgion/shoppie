@@ -53,15 +53,21 @@ const ProductList = ({categories, filters, sort}) => {
     if (sort === "newest") {
       setFilteredProducts((prev) =>
         [...prev].sort((a, b) => a.createdAt - b.createdAt)
+
       );
+      console.log(filteredProducts)
     } else if (sort === "asc") {
       setFilteredProducts((prev) =>
         [...prev].sort((a, b) => a.price - b.price)
       );
+      console.log(filteredProducts)
+
     } else {
       setFilteredProducts((prev) =>
         [...prev].sort((a, b) => b.price - a.price)
       );
+      console.log(filteredProducts)
+
     }
   }, [sort]);
 
@@ -69,8 +75,8 @@ const ProductList = ({categories, filters, sort}) => {
     <>
      <Container>
         {categories ? filteredProducts.map((item)=>
-            <Product item={item} key={item.id}/>
-        ): products.slice(0,8).map((item)=><Product item ={item} key={item.id}/>) }
+            <Product item={item} key={item._id}/>
+        ): products.slice(0,8).map((item)=><Product item ={item} key={item._id}/>) }
      </Container>
     </>
   )

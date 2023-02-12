@@ -60,11 +60,11 @@ const AllProducts = () => {
         <FilterContainer>
           <Filter>
             <FilterText>Filter Products:</FilterText>
-            <Select name="color" onChange={handleFilters}>
+            <Select name="colour" onChange={handleFilters}>
               <Options disabled selected>Color</Options>
-              <Options>white</Options>
+              <Options>gray</Options>
               <Options>black</Options>
-              <Options>green</Options>
+              <Options>pink</Options>
               <Options>red</Options>
               <Options>blue</Options>
               <Options>yellow</Options> 
