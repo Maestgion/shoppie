@@ -4,6 +4,7 @@ import Search from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import Badge from "@mui/material/Badge";
 import { useSelector } from "react-redux";
+import {Link} from "react-router-dom"
 
 const Container = styled.div`
   height: 60px;
@@ -86,11 +87,13 @@ const Navbar = () => {
           <Right>
             <Menu>REGISTER</Menu>
             <Menu>SIGN IN</Menu>
-            <Menu>
+           <Link to="/cart">
+           <Menu>
               <Badge badgeContent={cartQuantity} color="primary">
                 <ShoppingCartOutlinedIcon />
               </Badge>
             </Menu>
+           </Link>
           </Right>
         </Wrapper>
       </Container>

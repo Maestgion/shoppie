@@ -170,21 +170,25 @@ const SingleProduct = () => {
                     <Filter>
                         <FilterTitle>Color</FilterTitle>
 
-                        {
-                            product.colour?.map((clr)=>
-                       ( <FilterColor bg={clr} key={clr} onClick={()=>setColor(clr)}/>
+                      <FilterSize onChange={(e)=>setColor(e.target.value)}>
+                      {
+                            product.color?.map((clr)=>
+                       ( <FilterSizeOptions key={clr}>
+                        {clr}
+                       </FilterSizeOptions>
                        )
                         
                         )
                         }
+                      </FilterSize>
                        
                     </Filter>
                     <Filter>
                         <FilterTitle>Size</FilterTitle>
-                    <FilterSize>
+                    <FilterSize onChange={(e)=>setSize(e.target.value)}>
                         {
                             product.size?.map((sz)=>
-                                (<FilterSizeOptions key={sz} onClick={()=>setSize(sz)} >{sz}</FilterSizeOptions>)
+                                (<FilterSizeOptions key={sz}  >{sz}</FilterSizeOptions>)
                             )
                         }
                             

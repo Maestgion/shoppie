@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Navbar from '../components/Navbar';
 import Announcements from '../components/Announcements';
 import Footer from '../components/Footer';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`
 
@@ -159,6 +160,9 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+
+  const cart = useSelector(state=>state.cart)
+
   return (
     <>
         <Navbar/>
@@ -176,52 +180,35 @@ const Cart = () => {
             </Top>
             <Bottom>
                 <Info>
-                    <Product>
+                    {
+                      cart.products.map((product)=>
+                      (
+                        <Product>
                         <ProductDetail>
-                            <Image src="https://www.freepnglogos.com/uploads/shoes-png/shoes-wasatch-running-3.png" />
+                            <Image src={product.img}/>
                             <Details>
-                                <ProductName><b>Product:</b> ROCKY SHOES</ProductName>
-                                <ProductId><b>ID:</b> 987658765</ProductId>
-                                <ProductColour bg={"black"} />
-                                <ProductSize><b>Size:</b> 37.5</ProductSize>
+                                <ProductName><b>Product:</b>{product.title}</ProductName>
+                                <ProductId><b>ID:</b> {product._id}</ProductId>
+                                <ProductColour bg={product.color} />
+                                <ProductSize><b>Size:</b> {product.size}</ProductSize>
                             </Details>
                         </ProductDetail>
 
                         <PriceDetail>
                         <AmountContainer>
                         <Add/>
-                            <Amount><b>3</b></Amount>
+                            <Amount><b>{product.quantity}</b></Amount>
                             <Remove/>
                         </AmountContainer>
 
-                        <Price>RS. 2000</Price>
+                        <Price>{product.price*product.quantity}</Price>
                         </PriceDetail>
                     </Product>
+                      ))
+                    }
                     
                     <Hr />
-                    <Product>
-                        <ProductDetail>
-                            <Image src="https://www.freepnglogos.com/uploads/shoes-png/shoes-wasatch-running-3.png" />
-                            <Details>
-                                <ProductName><b>Product:</b> ROCKY SHOES</ProductName>
-                                <ProductId><b>ID:</b> 987658765</ProductId>
-                                <ProductColour bg={"black"} />
-                                <ProductSize><b>Size:</b> 37.5</ProductSize>
-                            </Details>
-                        </ProductDetail>
-
-                        <PriceDetail>
-                        <AmountContainer>
-                        <Add/>
-                            <Amount><b>3</b></Amount>
-                            <Remove/>
-                        </AmountContainer>
-
-                        <Price>RS. 2000</Price>
-                        </PriceDetail>
-                    </Product>
-                    
-                    <Hr />
+             
                 </Info>
            
 
@@ -229,7 +216,7 @@ const Cart = () => {
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>Rs. 76</SummaryItemPrice>
+              <SummaryItemPrice>Rs. {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -241,7 +228,7 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>Rs. 87</SummaryItemPrice>
+              <SummaryItemPrice>Rs. {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <Button>CHECKOUT NOW</Button>
                 </Summary>
