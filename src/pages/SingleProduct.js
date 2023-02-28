@@ -8,6 +8,8 @@ import { Add, Remove } from "@mui/icons-material";
 import {useLocation} from "react-router-dom"
 import {publicReq} from "../assets/axios/reqMethod"
 import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { addProduct } from '../redux/cartRedux'
 
 const Container = styled.div``
 
@@ -120,6 +122,9 @@ const SingleProduct = () => {
 
     const [product, setProduct] = useState({})
     const [quantity, setQuantity] = useState(1)
+    const [color, setColor] = useState("")
+    const [size, setSize] = useState("")
+    const dispatch = useDispatch()
 
     const handleAdd = ()=>(setQuantity(quantity+1))
     const handleRemove = ()=>(setQuantity(quantity-1))
@@ -137,6 +142,14 @@ const SingleProduct = () => {
        }
        getSingleProduct();
     }, [prodId])
+
+    const addToCart = ()=>{
+      dispatch(
+        
+        addProduct({...product, quantity, color, size} )
+        
+        )
+    }
 
   return (
     <>
@@ -159,7 +172,7 @@ const SingleProduct = () => {
 
                         {
                             product.colour?.map((clr)=>
-                       ( <FilterColor bg={clr} key={clr}/>
+                       ( <FilterColor bg={clr} key={clr} onClick={()=>setColor(clr)}/>
                        )
                         
                         )
@@ -171,7 +184,7 @@ const SingleProduct = () => {
                     <FilterSize>
                         {
                             product.size?.map((sz)=>
-                                (<FilterSizeOptions key={sz} >{sz}</FilterSizeOptions>)
+                                (<FilterSizeOptions key={sz} onClick={()=>setSize(sz)} >{sz}</FilterSizeOptions>)
                             )
                         }
                             
@@ -184,7 +197,7 @@ const SingleProduct = () => {
                         <Quantity >{quantity<1?setQuantity(1):quantity}</Quantity>
                         <Add style={{cursor:"pointer"}} onClick={handleAdd}/>
                     </QuantityContainer>
-                    <Button>
+                    <Button onClick={addToCart}>
                     ADD TO CART
                     </Button>
                 </CartContainer>
