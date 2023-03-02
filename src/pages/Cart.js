@@ -6,9 +6,11 @@ import Announcements from '../components/Announcements';
 import Footer from '../components/Footer';
 import { useSelector } from 'react-redux';
 import StripeCheckout from "react-stripe-checkout"
+import { userReq } from '../assets/axios/reqMethod';
+import { useEffect } from 'react';
 
+const KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY
 
-const KEY = process.env.STRIPE_PUBLIC_KEY
 
 const Container = styled.div`
 
@@ -172,7 +174,23 @@ const Cart = () => {
     setStripeToken(token)
   }
 
-  console.log(stripeToken);
+  useEffect(() => {
+    const paymentRequest = async () =>{
+      try{
+          const res = await userReq.post("/checkout/payments", {
+            tokenId: stripeToken.id,
+            amount: cart.total * 100
+          })
+      }catch(e)
+      {
+        console.log(e);
+      }
+    }
+    stripeToken && paymentRequest();
+  }, [stripeToken, cart.total])
+  
+
+  // console.log(stripeToken);
 
   return (
     <>
@@ -246,7 +264,7 @@ const Cart = () => {
               image="https://cdn.dribbble.com/users/230124/screenshots/15645740/media/5712571f79a059e26b5e4dd286598452.jpg?compress=1&resize=400x300"
               billingAddress
               shippingAddress
-              description={`Your total is $${cart.total}`}
+              description={`Your total is Rs.${cart.total}`}
               amount={cart.total * 100}
               token={onToken}
               stripeKey={KEY}
