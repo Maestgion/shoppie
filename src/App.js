@@ -8,7 +8,7 @@ import Home from "./pages/Home"
 import {BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 
 const App = () => {
-  const user = true;
+  const user = false;
   return (
     <>
     
