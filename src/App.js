@@ -6,9 +6,10 @@ import AllProducts from './pages/AllProducts'
 import SingleProduct from './pages/SingleProduct'
 import Home from "./pages/Home"
 import {BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { useSelector } from 'react-redux'
 
 const App = () => {
-  const user = false;
+  const user = useSelector(state=>state.user.currentUser);
   return (
     <>
     
