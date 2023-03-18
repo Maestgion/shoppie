@@ -77,6 +77,7 @@ const Login = () => {
   const handleSubmit = (e)=>{
     e.preventDefault()
     login(dispatch, {username, password})
+    console.log(username, password)
   }
 
   return (
