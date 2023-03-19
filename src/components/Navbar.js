@@ -85,8 +85,16 @@ const Navbar = () => {
             <Logo>SHOPPIE</Logo>
           </Center>
           <Right>
+            <Link to="/signup">
             <Menu>REGISTER</Menu>
+
+            </Link>
+
+            <Link to="/login">
             <Menu>SIGN IN</Menu>
+            
+            </Link>
+
            <Link to="/cart">
            <Menu>
               <Badge badgeContent={cartQuantity} color="primary">
